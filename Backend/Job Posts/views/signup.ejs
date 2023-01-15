@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/signup.css">
+</head>
+<body>
+    <a href="/"><img class="ab-t-l backarrow" src="Images/backarrow.png" alt="back"></a>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <img class="login100-form-logo" src="Images/sub-logo.png" alt="sub-logo">
+
+				<form onsubmit ="return prevDetails()" class="login100-form validate-form" action="/signup" method="post">
+                    <div id="c-1" class="">
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            Sign Up
+                        </span>
+
+                        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+					    	<input id="username" class="input100" name="email" type="text" placeholder="Email">
+					    	<span class="focus-input100"></span>
+					    </div>
+                        <% if (dub == false){ %>
+                            <p id="em-message" class="imp"></p>
+                        <% }else if(dub == true){ %>
+                            <p id="em-message" class="imp">**Email already in use. Please use a different email.</p>
+                        <% } %>
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <input id="password" class="input100" type="password" name="pass" placeholder="Password (8 to 15 Characters)" value="">
+					    	<span class="focus-input100"></span>
+					    </div>
+					    <p id="pw-message" class="imp"></p>
+                    
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <input id="re-password" class="input100" type="password" name="req-pass" placeholder="Re-enter Password" value="">
+					    	<span class="focus-input100"></span>
+					    </div>
+					    <p id="repw-message" class="imp"></p>
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="button" onclick="verifyPass()">
+                                Continue
+					    	</button>
+					    </div>
+                    </div>
+                    <div id="c-2" class="hide">
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            User Details
+                        </span>
+
+                        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+					    	<input id="fname" class="input100" type="text" name="fname" placeholder="First Name" value="">
+					    	<span class="focus-input100"></span>
+					    </div>
+					    <p id="fn-message" class="imp"></p>
+                    
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <input id="lname" class="input100" type="text" name="lname" placeholder="Lname" value="">
+					    	<span class="focus-input100"></span>
+					    </div>
+					    <p id="ln-message" class="imp"></p>
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <input id="phone" class="input100" type="number" name="phone" placeholder="Phone Number" value="">
+					    	<span class="focus-input100"></span>
+					    </div>
+					    <p id="ph-message" class="imp"></p>
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="button" onclick="userDetails()">
+                                Continue
+					    	</button>
+					    </div>
+                    </div>
+                    <div id="c-3" class="hide">
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            User Details
+                        </span>
+
+                        <div class="wrap-input100">
+                        <select class="input100" id="state" name="state" onclick="appear()">
+                            <option value="" disabled selected>State</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Ladakh">Ladakh</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                        <span class="focus-input100"></span>
+                        </div>
+                        <p id="st-message" class="imp"></p>
+
+                        <div id="comp-div" class="wrap-input100 validate-input hide" data-validate = "Enter username">
+					    	<input id="comp" class="input100" type="text" name="comp" placeholder="Previous Company(Enter 'nil' if none)" value="">
+					    	<span class="focus-input100"></span>
+					    </div>
+					    <p id="cp-message" class="imp"></p>
+                    
+                        <div id="cur-div" class="wrap-input100 validate-input hide" data-validate="Enter password">
+                            <select class="input100" name="cur" id="cur">
+                                <option value="" disabled selected>Current Post</option>
+                                <option value="Working Full Time">Working full time</option>
+                                <option value="Working Part Time">Working part time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Entrepreneur">Entrepreneur</option>
+                                <option value="Unemployed">Unemployed</option>
+                            </select>
+					    </div>
+					    <p id="cur-message" class="imp"></p>
+
+                        <div id="exp-div" class="wrap-input100 validate-input hide" data-validate="Enter password">
+                            <select class="input100" name="exp" id="exp">
+                                <option value="" disabled selected>Experience Level</option>
+                                <option value="none">No prior experience</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Entry level">Entry level</option>
+                                <option value="Associate">Associate</option>
+                                <option value="Mid-Senior level">Mid-Senior level</option>
+                                <option value="Director">Director</option>
+                                <option value="Executive">Executive</option>
+                            </select>
+					    </div>
+					    <p id="exp-message" class="imp"></p>
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="submit">
+                                Continue
+					    	</button>
+					    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+		function verifyPass(){
+			var pw = document.getElementById("password").value;
+            var repw = document.getElementById("re-password").value;
+			var em = document.getElementById("username").value;
+
+			if(em == ""){
+				document.getElementById("em-message").innerHTML = "**Please enter your email"
+                document.getElementById("em-message").style.marginBottom = "0.5rem"
+			}else if(em.indexOf("@") > -1 && em.indexOf(".") > -1){
+				document.getElementById("em-message").innerHTML = ""
+                document.getElementById("em-message").style.marginBottom = "2rem"
+				if(pw == ""){
+					document.getElementById("pw-message").innerHTML = "**Please enter a password"
+                    document.getElementById("pw-message").style.marginBottom = "0.5rem"
+				}else if(pw.length < 8){
+					document.getElementById("pw-message").innerHTML = "**Password must contain minimum of 8 characters"
+                    document.getElementById("pw-message").style.marginBottom = "0.5rem"
+				}else if(pw.length > 15){
+					document.getElementById("pw-message").innerHTML = "**Password can contain maximum of 15 characters"
+                    document.getElementById("pw-message").style.marginBottom = "0.5rem"
+				}else{
+                    document.getElementById("pw-message").innerHTML = ""
+                    document.getElementById("pw-message").style.marginBottom = "2rem"
+					if(repw == ""){
+					    document.getElementById("repw-message").innerHTML = "**Please re-enter your password"
+                        document.getElementById("repw-message").style.marginBottom = "0.5rem"
+				    }else if(pw != repw){
+                        document.getElementById("repw-message").innerHTML = "**Passwords do not match"
+                        document.getElementById("repw-message").style.marginBottom = "0.5rem"
+                        document.getElementById("pw-message").innerHTML = "**Passwords do not match"
+                        document.getElementById("pw-message").style.marginBottom = "0.5rem"
+                    }else{
+                        document.getElementById("em-message").innerHTML = ""
+                        document.getElementById("pw-message").innerHTML = ""
+                        document.getElementById("repw-message").innerHTML = ""
+                        document.getElementById("c-1").classList.add("hide")
+                        document.getElementById("c-2").classList.remove("hide")
+                    }
+				}
+			}else{
+                document.getElementById("em-message").innerHTML = "**Must contain @"
+                document.getElementById("em-message").style.marginBottom = "0.5rem"
+			}
+		}
+
+        function prevDetails(){
+            var st = document.getElementById("state").value;
+            var comp = document.getElementById("comp").value;
+            var exp = document.getElementById("exp").value;
+            var cur = document.getElementById("cur").value;
+
+            if (st == ""){
+                document.getElementById("st-message").innerHTML = "**Please choose your state"
+                return false;
+            }else{
+                document.getElementById("st-message").innerHTML = ""
+                if (comp == ""){
+                    document.getElementById("cp-message").innerHTML = "**Please enter a company. Enter 'nil' if none."
+                    return false;
+                }else{
+                    document.getElementById("cp-message").innerHTML = ""
+                    if (cur == ""){
+                        document.getElementById("cur-message").innerHTML = "**Please choose your current post"
+                        return false;
+                    }else{
+                        document.getElementById("cur-message").innerHTML = ""
+                        if (exp == ""){
+                            document.getElementById("exp-message").innerHTML = "**Please choose your experience level"
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        function userDetails(){
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var phone = document.getElementById("phone").value;
+            toString(phone);
+
+            if (fname == ""){
+                document.getElementById("fn-message").innerHTML = "**Please enter your name"
+            }else{
+                document.getElementById("fn-message").innerHTML = ""
+                if(phone.length == 10){
+                    document.getElementById("fn-message").innerHTML = ""
+                    document.getElementById("ln-message").innerHTML = ""
+                    document.getElementById("ph-message").innerHTML = ""
+                    document.getElementById("c-2").classList.add("hide")
+                    document.getElementById("c-3").classList.remove("hide")
+                }else{
+                    document.getElementById("ph-message").innerHTML = "**Phone number must contain 10 digits"
+                }
+            }
+        }
+
+        function appear(){
+            document.getElementById("exp-div").classList.remove("hide")
+            document.getElementById("cur-div").classList.remove("hide")
+            document.getElementById("comp-div").classList.remove("hide")
+        }
+	</script>
+</body>
+</html>

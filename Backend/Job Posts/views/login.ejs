@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+	<a href="/"><img class="ab-t-l backarrow" src="Images/backarrow.png" alt="back"></a>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<img class="login100-form-logo" src="Images/sub-logo.png" alt="sub-logo">
+				<form onsubmit ="return verifyPass()" class="login100-form validate-form" action="/login" method="post">
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+
+					<% if(logpw == false){ %>
+						<div class="wrap-input100 validate-input" data-validate = "Enter username">
+							<input id="email" class="input100" type="text" name="email" placeholder="Email">
+							<span class="focus-input100"></span>
+						</div>
+					<% }else{ %>
+						<div class="wrap-input100 validate-input" data-validate = "Enter username">
+							<input id="email" class="input100" type="text" name="email" placeholder="Email" value="<%= logprev %>">
+							<span class="focus-input100"></span>
+						</div>
+					<% } %>
+					
+					<% if(logem == false){ %>
+						<p id="em-message"></p>
+					<% }else{ %>
+						<p id="em-message">**Invalid Email</p>
+					<% } %>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input id="password" class="input100" type="password" name="pass" placeholder="Password (8 to 15 Characters)" value="">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<% if(logpw == false){ %>
+						<p id="pw-message"></p>
+					<% }else{ %>
+						<p id="pw-message">**Incorrect Password</p>
+					<% } %>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function verifyPass(){
+			var pw = document.getElementById("password").value;
+			var em = document.getElementById("email").value;
+			if(em == ""){
+				document.getElementById("em-message").innerHTML = "**Enter an email"
+				return false;
+			}else if(em.indexOf("@") > -1 && em.indexOf(".") > -1){
+				document.getElementById("em-message").innerHTML = ""
+				if(pw == ""){
+					document.getElementById("pw-message").innerHTML = "**Enter a password"
+					return false;
+				}else if(pw.length < 8){
+					document.getElementById("pw-message").innerHTML = "**Password must contain minimum of 8 characters"
+					return false;
+				}else if(pw.length > 15){
+					document.getElementById("pw-message").innerHTML = "**Password can contain maximum of 15 characters"
+					return false;
+				}else{
+					return true;
+				}
+			}else{
+				document.getElementById("em-message").innerHTML = "**Must contain @"
+				return false;
+			}
+			
+		}
+	</script>
+</body>
+</html>
